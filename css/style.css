@@ -377,7 +377,7 @@ footer > a:hover {
 	    float: none;
 	    position: absolute;
 	  	width: 0%;
-	  	height: 100%;
+	  	height: 120%;
 	  	top: 0px;
 	  	bottom: 0px;
 	  	z-index: 2;
@@ -462,7 +462,7 @@ footer > a:hover {
 		bottom: 0;
 		z-index: 1;
 		width: 100%;
-		height: 100%;
+		height: 120%;
 		transition: all 0.4s;
 		opacity: 0;
 		visibility: hidden;
