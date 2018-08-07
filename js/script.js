@@ -50,7 +50,7 @@ app.controller('appCtrl', function($scope, $http, languagesService) {
                 "email": $scope.email,
                 "message": $scope.message
             }
-            alert("$scope.contactForm: "+JSON.stringify($scope.contactForm, null, 4))
+            // alert("$scope.contactForm: "+JSON.stringify($scope.contactForm, null, 4))
 
             $http({
                 method : "POST",
