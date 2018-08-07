@@ -1,10 +1,19 @@
 'use strict';
 
-var appUrl = "http://localhost:3000/";
-// var appUrl = "https://karni-server.herokuapp.com/";
+// var appUrl = "http://localhost:3000/";
+var appUrl = "https://karni-server.herokuapp.com/";
 
 var app = angular.module('app', [])
 .value('appLanguage', 'english');
+
+app.run(function($http){   // Server Check
+    $http.post(appUrl+"serverCheck").then(function(data){
+        console.log("Server is On");
+    },
+    function(data, status) {
+        console.log("Server is Off");
+    });
+})
 
 app.controller('appCtrl', function($scope, $http, languagesService) {
     
@@ -41,18 +50,18 @@ app.controller('appCtrl', function($scope, $http, languagesService) {
                 "email": $scope.email,
                 "message": $scope.message
             }
-            // alert("$scope.contactForm: "+JSON.stringify($scope.contactForm, null, 4))
+            alert("$scope.contactForm: "+JSON.stringify($scope.contactForm, null, 4))
 
-            // $http({
-            //     method : "POST",
-            //     url : appUrl+"sendContactForm",
-            //     data: {form: $scope.contactForm}
-            // }).then(function (response) {
-            //     console.log("sendContactForm successfully !");
-            //     console.log("JSON: "+JSON.stringify(response.data, null, 4));
-            // }, function (response) {
-            //     console.log("sendContactForm Error !");
-            // });
+            $http({
+                method : "POST",
+                url : appUrl+"sendContactForm",
+                data: {contactForm: $scope.contactForm}
+            }).then(function (response) {
+                console.log("send Contact Form - successfully !");
+                // console.log("JSON: "+JSON.stringify(response.data, null, 4));
+            }, function (response) {
+                console.log("send Contact Form - Error !");
+            });
 
             $scope.fullName = "";
             $scope.email = "";
