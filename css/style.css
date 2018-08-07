@@ -35,19 +35,27 @@ header > h2 > span {
 	display: block;
 }
 header > .topnav {
-  overflow: hidden;
-  float: left;
-  width: 63%;
-  margin: 0px;
-  padding: 0px;
-  margin-top: 60px;
+    overflow: hidden;
+    float: left;
+    width: 63%;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 60px;
+    /*background-color: pink;*/
 }
+.hebMode > header > .topnav {margin-left: -50px;}
+
 header > .topnav > li {
 	float: left;
 	list-style: none;
 }
+.hebMode > header > .topnav > li {float: right;}
+
 header > .topnav > li:first-child {display: none;}
+
 header > .topnav > li:nth-child(2) > a:first-child {border: none;}
+.hebMode > header > .topnav > li:nth-child(2) > a:first-child {border-left: 1px solid #808285;}
+.hebMode > header > .topnav > li:nth-child(6) > a:first-child {border: none;}
 
 header > .topnav a {
   float: left;
@@ -61,6 +69,11 @@ header > .topnav a {
   direction: ltr;
   transition: all;
 }
+.hebMode > header > .topnav a {
+	direction: rtl;
+	padding: 4px 36px;
+}
+
 header > .topnav a:hover {
 	text-shadow: 0.4px 0.4px #000;
 	transition: all;
@@ -71,7 +84,7 @@ header > .langDrop {
 	width: 15%;
 	height: 100%;
 	/*background-color: green;*/
-	float: left;
+	float: right;
 }
 header > .langDrop > span {
 	margin-top: 65px;
@@ -81,9 +94,13 @@ header > .langDrop > span {
 	font-size: 19px;
 	cursor: pointer;
 }
-/*header > .langDrop > span.disable {color: #b2b2b2;}*/
+header > .langDrop > span.active {
+	color: #666;
+	font-weight: 550;
+}
+
 header > .langDrop > span:nth-child(2){
-	color: #808285;
+	color: #b2b2b2;
 	font-size: 24px;
 	margin: 5px;
 	margin-top: 61px;
@@ -129,8 +146,9 @@ header > .langDrop > span:nth-child(2){
 }
 #wrapper > div {
 	height: auto;
-	width: 100%;
+	width: 82%;
 	float: left;
+	/*background-color: pink;*/
 }
 #wrapper > div > h2 {
 	font-size: 28px;
@@ -138,25 +156,35 @@ header > .langDrop > span:nth-child(2){
 	direction: ltr;
 	width: 100%;
 	float: left;
-	/*margin-left: 10%;*/
 	color: #333333;
 	font-weight: normal;
 	/*background-color: pink;*/
 	margin-top: 40px;
-	/*margin-bottom: 20px;*/
+}
+.hebMode > #wrapper > div > h2 {
+	float: right;
+	text-align: right;
+	direction: rtl;
+	font-size: 30px;
 }
 #wrapper > div > p {
 	font-size: 18px;
 	text-align: left;
 	direction: ltr;
-	width: 70%;
+	width: 90%;
 	float: left;
-	/*margin-left: 10%;*/
 	color: #808285;
 	line-height: 28px;
 	margin-top: 0px;
 	padding-bottom: 20px;
 }
+.hebMode > #wrapper > div > p {
+	float: right;
+	text-align: right;
+	direction: rtl;
+	font-size: 19px;
+}
+
 
 #wrapper > #what,
 #wrapper > #studio,
@@ -165,17 +193,29 @@ header > .langDrop > span:nth-child(2){
 	padding-bottom: 30px;
 }
 
+.hebMode > #wrapper > #what,
+.hebMode > #wrapper > #studio,
+.hebMode > #wrapper > #teachers {
+	margin-right: 10%;
+	float: right;
+}
 
 
 
 #wrapper > div > .teacher {
-	width: 38%;
+	width: 47%;
 	height: auto;
 	float: left;
 	/*background-color: gray;*/
 	margin-right: 3%;
 	margin-top: 15px;
 }
+.hebMode > #wrapper > div > .teacher {
+	float: right;
+	margin-right: 0;
+	margin-left: 3%;
+}
+
 #wrapper > div > .teacher > .teacherImg {
 	width: 100%;
 	height: 0;
@@ -185,8 +225,8 @@ header > .langDrop > span:nth-child(2){
 	background-size: 100% auto;
 	padding-top: 65%;
 }
-#wrapper > div > .teacher > .dudi {background-image: url("../img/dudi.png");}
-#wrapper > div > .teacher > .ronen {background-image: url("../img/ronen.png");}
+#wrapper > div > .teacher > .dudi {background-image: url("../img/dudi.jpeg");}
+#wrapper > div > .teacher > .ronen {background-image: url("../img/ronen.jpg");}
 
 #wrapper > div > .teacher > h2 {
 	font-size: 26px;
@@ -196,6 +236,12 @@ header > .langDrop > span:nth-child(2){
 	color: #333333;
 	margin-top: 30px;
 }
+.hebMode > #wrapper > div > .teacher > h2 {
+	font-size: 28px;
+	text-align: right;
+	direction: rtl;
+}
+
 #wrapper > div > .teacher > p {
 	font-size: 18px;
 	text-align: left;
@@ -206,6 +252,13 @@ header > .langDrop > span:nth-child(2){
 	float: left;
 	margin-top: 0px;
 }
+.hebMode > #wrapper > div > .teacher > p {
+	text-align: right;
+	direction: rtl;
+	float: right;
+	font-size: 19px;
+}
+
 
 
 
@@ -217,6 +270,11 @@ header > .langDrop > span:nth-child(2){
 	float: left;
 	padding-bottom: 5px;
 }
+.hebMode > #wrapper > #contact {
+	float: right;
+	margin-right: 10%;
+	margin-left: 0;
+}
 
 #wrapper > #contact > .info {
 	width: 45%;
@@ -224,6 +282,13 @@ header > .langDrop > span:nth-child(2){
 	height: auto;
 	padding-left: 5%;
 }
+.hebMode > #wrapper > #contact > .info {
+	float: right;
+	padding-left: 0;
+	padding-right: 5%;
+	/*background-color: pink;*/
+}
+
 #wrapper > #contact > .info > h2 {
 	color: #fff;
 	float: left;
@@ -233,6 +298,10 @@ header > .langDrop > span:nth-child(2){
 	width: 100%;
 	margin-top: 30px;
 	margin-bottom: 40px;
+}
+.hebMode > #wrapper > #contact > .info > h2 {
+	text-align: right;
+	float: right;
 }
 #wrapper > #contact > .info > a {
 	/*background-color: green;*/
@@ -249,6 +318,10 @@ header > .langDrop > span:nth-child(2){
 	margin-bottom: 25px;
 	color: #fff;
 }
+.hebMode > #wrapper > #contact > .info > a {
+	float: right;
+	text-align: right;
+}
 #wrapper > #contact > .info > a:last-child {border: none;}
 
 #wrapper > #contact > .info > a > img {
@@ -261,6 +334,11 @@ header > .langDrop > span:nth-child(2){
 	margin-right: 10px;
 	float: left;
 }
+.hebMode > #wrapper > #contact > .info > a > img {
+	float: right;
+	margin-right: 0px;
+	margin-left: 10px;
+}
 
 #wrapper > #contact > form {
 	width: 45%;
@@ -269,6 +347,13 @@ header > .langDrop > span:nth-child(2){
 	margin-top: 10px;
 	margin-right: 5%;
 }
+.hebMode > #wrapper > #contact > form {
+	float: right;
+	margin-right: 0;
+	margin-left: 5%;
+	/*background-color: pink;*/
+}
+
 #wrapper > #contact > form > input {
 	width: 90%;
 	/*height: 50px;*/
@@ -279,6 +364,12 @@ header > .langDrop > span:nth-child(2){
 	font-size: 18px;
 	direction: ltr;
 }
+.hebMode > #wrapper > #contact > form > input {
+	float: left;
+	text-align: right;
+	direction: rtl;
+}
+
 #wrapper > #contact > form > textarea {
 	width: 90%;
 	height: 100px;
@@ -290,6 +381,12 @@ header > .langDrop > span:nth-child(2){
 	font-size: 18px;
 	direction: ltr;
 }
+.hebMode > #wrapper > #contact > form > textarea {
+	float: left;
+	text-align: right;
+	direction: rtl;
+}
+
 #wrapper > #contact > form > textarea::-webkit-input-placeholder {font-family: SansHebrew;}
 #wrapper > #contact > form > textarea:-moz-placeholder {font-family: SansHebrew;}
 #wrapper > #contact > form > textarea::-moz-placeholder {  font-family: SansHebrew;}
@@ -313,7 +410,7 @@ header > .langDrop > span:nth-child(2){
 	font-family: SansHebrew;
 	cursor: pointer;
 }
-
+.hebMode > #wrapper > #contact > form > input[type="submit"] {float: left;}
 
 
 footer {
@@ -384,6 +481,7 @@ footer > a:hover {
 	    transition: width 0.2s ease;
 	    overflow: visible;
 	}
+
 	header > .topnav.responsive {
 	  	width: 85%;
 	  	display: block;
@@ -402,11 +500,18 @@ footer > a:hover {
     }
 	header > .topnav.responsive .icon {display: none;}
 
+	.hebMode > header > .topnav a {
+		padding: 4px 26px;
+	}
+
 	header > .topnav > li {
 		width: 100%;
 		height: 80px;
 		padding-left: 25px;
 	}
+	/*.hebMode > header > .topnav > li {float: none;}*/
+	.hebMode > header > .topnav > li {float: left;}
+
 	header > .topnav > li:first-child {
 		display: block;
 		border-bottom: 1px solid #ddd;
@@ -419,6 +524,10 @@ footer > a:hover {
 		line-height: 65px;
 		border: none;
 	}
+
+	.hebMode > header > .topnav > li:nth-child(2) > a:first-child {border-left: none;}
+	.hebMode > header > .topnav > li:nth-child(6) > a:first-child {border-bottom: 1px solid #ddd;}
+
 	header > .topnav > li > a.closeNav {
 		position: absolute;
 		right: 15px;
@@ -486,18 +595,31 @@ footer > a:hover {
 		font-size: 20px;
 		margin-top: 20px;
 	}
+	.hebMode > #wrapper > div > h2 {font-size: 20px;}
+
 	#wrapper > div > p {
 		font-size: 15px;
 		width: 100%;
 		line-height: 24px;
 		padding-bottom: 10px;
 	}
+	.hebMode > #wrapper > div > p {font-size: 16px;}
+
 	#wrapper > #what,
 	#wrapper > #studio {
 		margin-left: 4%;
 		width: 92%;
 		padding-bottom: 10px;
 	}
+	.hebMode > #wrapper > #what,
+	.hebMode > #wrapper > #studio {
+		margin-left: 0;
+		margin-right: 4%;
+		width: 92%;
+		padding-bottom: 10px;
+	}
+
+
 
 
 	#wrapper > #teachers {
@@ -505,6 +627,14 @@ footer > a:hover {
 		width: 95%;
 		padding-bottom: 10px;
 	}
+	.hebMode > #wrapper > #teachers {
+		margin-left: 0;
+		margin-right: 4%;
+		width: 95%;
+		padding-bottom: 10px;
+	}
+
+
 	#wrapper > div > .teacher {
 		width: 47%;
 		margin-top: 0px;
@@ -514,18 +644,26 @@ footer > a:hover {
 		margin-top: 8px;
 		margin-bottom: 8px;
 	}
+	.hebMode > #wrapper > div > .teacher > h2 {font-size: 17px;}
+
 	#wrapper > div > .teacher > p {
 		font-size: 14px;
 		color: #808285;
 		width: 95%;
 	}
-
+	.hebMode > #wrapper > div > .teacher > p {font-size: 14px;}
 
 	#wrapper > #contact {
 		width: 92%;
 		margin-left: 4%;
 		padding-bottom: 5px;
 	}
+	.hebMode > #wrapper > #contact {
+		margin-left: 0;
+		margin-right: 4%;
+		float: right;
+	}
+
 	#wrapper > #contact > .info {
 		width: 95%;
 		padding-left: 5%;
@@ -569,6 +707,7 @@ footer > a:hover {
 		margin-top: 30px;
 		margin-bottom: 10px;
 	}
+	.hebMode > #wrapper > #contact > form > input[type="submit"] {margin-left: 0;}
 
 	footer {
 	   width: 30%;

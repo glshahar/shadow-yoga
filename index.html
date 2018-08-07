@@ -9,9 +9,13 @@
     <script src="js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Shadow Yoga Shala</title>
+
+    <script src="js/languageService/languageService.js"></script>
+    <script src="js/languageService/languages/lang_he.js"></script>
+    <script src="js/languageService/languages/lang_en.js"></script>
 </head>
 
-<body ng-controller="appCtrl" ng-class="{disableScroll:disableScroll}">
+<body ng-controller="appCtrl" ng-class="{disableScroll:disableScroll, 'hebMode':language=='hebrew'}">
 
 	<header>
 
@@ -25,35 +29,22 @@
 
 		<ul class="topnav" id="myTopnav">
 			<li>
-				<a href="">Menu</a>
+				<a href="">{{dict.mainTitle}}</a>
 				<a href="javascript:void(0);" class="closeNav" ng-click="openNavbar()">&#10005;</a>
 			</li>
-			<li>
-		    	<a href="#what" ng-click="openNavbar()">What is Shadow Yoga?</a>
-		    </li>
-		    <li>
-		    	<a href="#studio" ng-click="openNavbar()">The Studio</a>
-		    </li>
-		    <li>
-		    	<a href="#teachers" ng-click="openNavbar()">The Teachers</a>
-		    </li>
-		    <li>
-		    	<a href="#news" ng-click="openNavbar()">News</a>
-		    </li>
-		    <li>
-		    	<a href="#contact" ng-click="openNavbar()">Contact</a>
+			<li ng-repeat="line in dict.menu">
+		    	<a ng-href="{{line.link}}" ng-click="openNavbar()">{{line.title}}</a>
 		    </li>
 		    <li>
 			    <a href="javascript:void(0);" class="icon" ng-click="openNavbar()">&#9776;</a>
 			</li>
 		</ul>
-		<!-- <div class="darkBox" id="navDark" ng-click="navOpen=false" ng-class="{show:navOpen}"></div> -->
 		<div class="darkBox" id="darkBox" ng-click="openNavbar()"></div>
 
 		<div class="langDrop">
-			<span>English</span>
+			<span ng-click="changeLang('english')" ng-class="{active:language=='english'}">English</span>
 			<span>/</span>
-			<span>עברית</span>
+			<span ng-click="changeLang('hebrew')" ng-class="{active:language=='hebrew'}">עברית</span>
 		</div>
 	</header>
 
@@ -62,75 +53,41 @@
 		<div class="bgr1"></div>
 
 		<div id="what">
-			<h2>What is Shadow Yoga?</h2>
-			<p>
-				The name Shadow Yoga is derived from the 6th chapter of the ancient tantrika treatise ‘The Shiva-Svarodaya’ (the birth of the
-				breath of life revealed by the god Shiva). This chapter, entitled ‘Yoga of the Shadow Man’, deals with the intricate manifestations of
-				the shadow and their significance both inside and outside the human organism.
-				The Ashtanga Hrdaya of Vagbhata, a primary ayurvedic text, also contains a chapter on the shadow which deals with diagnostic
-				principles. There is also a story about Allama Prabhudeva, the initiating guru of Gorakshanath (one of the famous forefathers of
-				Hatha Yoga), in which he describes the human body as nothing but layers of frozen shadows. According to Hatha Yogic anatomy
-				the body is composed of three discrete bodies and five sheaths (coverings or shadows). The practice of Hatha Yoga has evolved
-				with the purpose of dissolving these shadows.
-			</p>
+			<h2>{{dict.whatIs.title}}</h2>
+			<p>{{dict.whatIs.text}}</p>
 		</div>
 
 		<div class="bgr2"></div>
 
 		<div id="studio">
-			<h2>The Studio</h2>
-			<p>
-				The name Shadow Yoga is derived from the 6th chapter of the ancient tantrika treatise ‘The Shiva-Svarodaya’ (the birth of the
-				breath of life revealed by the god Shiva). This chapter, entitled ‘Yoga of the Shadow Man’, deals with the intricate manifestations of
-				the shadow and their significance both inside and outside the human organism.
-				The Ashtanga Hrdaya of Vagbhata, a primary ayurvedic text, also contains a chapter on the shadow which deals with diagnostic
-				principles. There is also a story about Allama Prabhudeva, the initiating guru of Gorakshanath (one of the famous forefathers of
-				Hatha Yoga), in which he describes the human body as nothing but layers of frozen shadows. According to Hatha Yogic anatomy
-				the body is composed of three discrete bodies and five sheaths (coverings or shadows). The practice of Hatha Yoga has evolved
-				with the purpose of dissolving these shadows.
-			</p>
+			<h2>{{dict.studio.title}}</h2>
+			<p>{{dict.studio.text}}</p>
 		</div>
 
 		<div class="bgr3"></div>
 
 		<div id="teachers">
-			<h2>The Teachers</h2>
+			<h2>{{dict.teachers.title}}</h2>
 			<div class="teacher">
-				<div class="teacherImg ronen">
-				</div>
-				<h2>Ronen Cohen</h2>
-				<p>
-					started practicing yoga in 2002. In 2005 I finished my first teacher
-					course and started teaching yoga to groups and individuals.
-					In 2007, I met my uncle, Malka, and since then I have been practicing
-					Yoga. A few years later, I started to study with Sandor Ramata, a
-					master of the shadow yoga school and Emma Blanves.
-					I feel fortunate that I have persisted in yoga, and am thrilled by the
-					many layers in which it deepens. I am grateful to the teachers who
-					lead me safely, and I am happy to have the right to help others walk
-					this wonderful way.
-				</p>
+				<div class="teacherImg ronen"></div>
+				<h2>{{dict.teachers.names[0].title}}</h2>
+				<p>{{dict.teachers.names[0].text}}</p>
 			</div>
 			<div class="teacher">
-				<div class="teacherImg dudi">
-				</div>
-				<h2>Dudi Malka</h2>
-				<p>
-					Dudi has been studying and practicing yoga for 19 years, of which two
-					and a half years in India. In the past fourteen years he has studied and
-					practiced shadow yoga in workshops in Europe and India, under the
-					guidance and inspiration of his teacher Shandor Ramta. Teaches and
-					authorizes teachers in Haifa and at his home in Harduf.
-				</p>
+				<div class="teacherImg dudi"></div>
+				<h2>{{dict.teachers.names[1].title}}</h2>
+				<p>{{dict.teachers.names[1].text}}</p>
 			</div>
 		</div>
 
 		<div id="contact">
 			<div class="info">
-				<h2>Contact</h2>
+				<h2>{{dict.contact.title}}</h2>
 				<a href="https://www.google.com/maps/place/Bar+Ilan+St+13,+Tel+Aviv-Yafo/@32.069966,34.7753677,17z/data=!3m1!4b1!4m5!3m4!1s0x151d4b7f1cd192d3:0xdf666f14448cdcfb!8m2!3d32.0699615!4d34.7775564" target="_blank">
 					<img src="./img/location.png">
-					<span>13 Bar Ilan St. Tel Aviv, Israel</span>
+					<!-- <span>13 Bar Ilan St. Tel Aviv, Israel</span> -->
+					<span>{{dict.contact.address}}</span>
+					
 				<a href="mailto:info@shadowyoga.co.il">
 					<img src="./img/mail.png">
 					<span>info@shadowyoga.co.il</span>
@@ -144,10 +101,10 @@
 				</a>
 			</div>
 			<form>
-				<input type="text" name="fullName" ng-model="fullName" placeholder="Full Name" required>
-				<input type="email" name="email" ng-model="email" placeholder="E mail" required>
-				<textarea placeholder="Your Message" ng-model="message" required></textarea>
-				<input type="submit" name="submit" value="Submit" ng-click="sendContactForm()">
+				<input type="text" name="fullName" ng-model="fullName" placeholder="{{dict.contact.form.name}}" required>
+				<input type="email" name="email" ng-model="email" placeholder="{{dict.contact.form.email}}" required>
+				<textarea placeholder="{{dict.contact.form.message}}" ng-model="message" required></textarea>
+				<input type="submit" name="submit" value="{{dict.contact.form.send}}" ng-click="sendContactForm()">
 			</form>
 		</div>
 

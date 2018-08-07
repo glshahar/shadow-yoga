@@ -3,9 +3,16 @@
 var appUrl = "http://localhost:3000/";
 // var appUrl = "https://karni-server.herokuapp.com/";
 
-var app = angular.module('app', []);
+var app = angular.module('app', [])
+.value('appLanguage', 'english');
 
-app.controller('appCtrl', function($scope, $http) {
+app.controller('appCtrl', function($scope, $http, languagesService) {
+    
+    $scope.changeLang = function (language) {
+        $scope.dict = languagesService.getLanguage(language);
+        $scope.language = language;
+    }
+    $scope.changeLang("hebrew");
 
     $scope.openNavbar = function () {
         var x = document.getElementById("myTopnav");
